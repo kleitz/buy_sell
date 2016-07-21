@@ -17,14 +17,13 @@ class CreateProductsTable extends Migration
             $table->string('p_name');
             $table->string('p_category');
             $table->integer('p_qty')->nullable();
-            $table->integer('p_price')->unsigned();
-            $table->string('p_type');
+            $table->integer('p_buying_price')->unsigned();
+            $table->integer('p_selling_price')->unsigned();
+            $table->integer('stock')->unsigned();
+            $table->string('image')->nullable();
+            $table->string('p_active')->nullable();;
             $table->integer('s_id')->unsigned();
             $table->timestamps();
-
-            $table->foreign('s_id')
-                ->references('id')->on('sellers')
-                ->onDelete('cascade');
         });
     }
 
